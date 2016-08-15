@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <style type="text/css">
+
+    </style>
+    <link type="text/css" rel="stylesheet" href="./public/styles/app.css">
+</head>
+<body>
+    <div>
+        <nav class="navbar-default navbar-inverse">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/"> </a></li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+        <div ng-view="" class="view"></div>
+    </div>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/traceur/traceur.js"></script>
+    <script>
+        traceur.options.experimental = true;
+        new traceur.WebPageTranscoder(document.location.href).run();
+    </script>
+
+    <script type="module" src="public/bootstrap.js"></script>
+</body>
+</html>

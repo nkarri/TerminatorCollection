@@ -1,0 +1,42 @@
+body {
+    font-family:Helvetica;
+    font-size: 14px;
+    line-height:18px;
+    color:#484949;
+    background-color:#eee;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1A9DBA;
+    border-bottom: 1px solid #ccc;
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #484949;
+}
+
+.image-highlight {
+    border: 4px solid #1A9DBA;
+}
+
+.title-highlight {
+    color: #1A9DBA;
+}
+
+.collection-list-item {
+    padding-bottom:20px;
+}
+
+.details-container {
+    box-shadow: -3px 0px 4px #ccc;
+    background-color:#fff;
+}
+
+.movie-casts {
+    height:450px;
+    overflow:auto;
+}

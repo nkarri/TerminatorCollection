@@ -1,0 +1,58 @@
+<div class="col-sm-12">
+    <!--List of movies-->
+    <div class="col-sm-3">
+        <h1>BROWSE MOVIES</h1>
+        <div ng-repeat="movie in vm.movieCollection.parts" class="col-sm-6 collection-list-item"
+             ng-click="vm.getMovieDetails(movie)">
+            <img ng-src="{{vm.imageSrc}}{{movie.backdrop_path}}"
+                 ng-class="vm.selection.selectedMovie == movie ? 'image-highlight' : '' "
+                 class="img-circle" width="122" height="122">
+            <h2 ng-class="vm.selection.selectedMovie == movie ? 'title-highlight' : '' ">{{movie.title | uppercase}}</h2>
+        </div>
+    </div>
+    <div class="col-sm-9" class="details-container">
+        <div class="col-sm-12" style="padding-bottom:30px;">
+            <h1>{{vm.movieDetails.title | uppercase}}</h1>
+            <div>
+                <div class="col-sm-3">
+                    <img ng-src="{{vm.imageSrc}}{{vm.movieDetails.poster_path}}" alt="Image not available" width="174" height="262">
+                </div>
+                <div class="col-sm-9">
+                    <div>
+                        <h2>WHO MADE IT?</h2>
+                        <div>Director: {{vm.movieDetails.director ? vm.movieDetails.director.name : 'Information not available'}}</div>
+                        <div>Writer: {{vm.movieDetails.writer ? vm.movieDetails.writer : 'Information not available'}}</div>
+                        <div>
+                            Stars: <span ng-repeat="item in vm.movieCredits.cast | limitTo : 4">{{item.name}}{{$last ? '' : ', '}}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>WHAT'S IT ABOUT?</h2>
+                        {{vm.movieDetails.overview}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <h1>MOVIE CREDITS</h1>
+            <div class="col-sm-6 movie-casts">
+                <div class="col-sm-12" ng-repeat="cast in vm.movieCredits.cast" ng-click="vm.showFullProfilePic(cast)">
+                    <div class="col-sm-2">
+                        <img ng-src="{{vm.imageSrc}}{{cast.profile_path}}"
+                             ng-class="vm.select.selectedCast == cast ? 'image-highlight' : '' "
+                             class="img-circle" alt="Image not available" width="66" height="66">
+                    </div>
+                    <div class="col-sm-8" style="margin-left:20px;">
+                        <span ng-class="vm.select.selectedCast == cast ? 'title-highlight' : '' ">
+                            <h2 ng-class="vm.select.selectedCast == cast ? 'titleHighlight' : '' ">{{cast.name | uppercase}}</h2>
+                            {{cast.character}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <img ng-src="{{vm.fullProfilePic}}" alt="Image not available" width="347" height="420">
+            </div>
+        </div>
+    </div>
+</div>
